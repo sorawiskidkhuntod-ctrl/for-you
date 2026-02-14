@@ -6,84 +6,99 @@
 <title>For My Love 💖</title>
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #ff9ecf, #ff6fb5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    overflow: hidden;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff9ecf, #ff6fb5);
+
+  /* จัดกลางจริง ๆ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100dvh; /* ดีกว่า 100vh สำหรับมือถือ */
+  text-align: center;
+}
+
+/* กล่องหน้าหลัก */
+.container {
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
 }
 
 /* ปุ่มหลัก */
 button {
-    font-size: 20px;
-    padding: 15px 25px;
-    border-radius: 12px;
-    border: none;
-    background-color: white;
-    color: #ff4d94;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  font-size: 20px;
+  padding: 14px 24px;
+  border-radius: 14px;
+  border: none;
+  background: white;
+  color: #ff4d94;
+  cursor: pointer;
+  width: 100%;
 }
 
 /* ฉากมืด */
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
-    display: none;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 /* popup */
 .popup {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    width: 80%;
-    max-width: 300px;
-    animation: fadeIn 0.6s ease;
+  background: white;
+  width: 100%;
+  max-width: 320px;
+  padding: 25px;
+  border-radius: 20px;
+  animation: fadeIn 0.4s ease;
 }
 
 .popup h2 {
-    color: #ff4d94;
-    font-size: 24px;
+  margin-top: 0;
+  font-size: 22px;
+  color: #ff4d94;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.8); }
-    to { opacity: 1; transform: scale(1); }
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }
 </style>
 </head>
 
 <body>
 
-<button onclick="showLove()">เค้ามีอะไรจะบอก...</button>
+<div class="container">
+  <button onclick="showLove()">เค้ามีอะไรจะบอก...</button>
+</div>
 
 <div class="overlay" id="overlay">
-    <div class="popup">
-        <h2>💖 เค้ารักที่รักนะ 💖</h2>
-        <button onclick="closeLove()">ปิด</button>
-    </div>
+  <div class="popup">
+    <h2>💖 เค้ารักที่รักนะ 💖</h2>
+    <button onclick="closeLove()">ปิด</button>
+  </div>
 </div>
 
 <script>
 function showLove() {
-    document.getElementById("overlay").style.display = "flex";
+  document.getElementById("overlay").style.display = "flex";
 }
 
 function closeLove() {
-    document.getElementById("overlay").style.display = "none";
+  document.getElementById("overlay").style.display = "none";
 }
 </script>
 
