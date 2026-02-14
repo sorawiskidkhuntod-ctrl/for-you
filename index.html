@@ -2,111 +2,88 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Happy Valentine day kub ❤️</title>
-
-<!-- Pixel Font -->
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love 💖</title>
 
 <style>
 body {
     margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff9ecf, #ff6fb5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
     text-align: center;
-    font-family: 'Press Start 2P', cursive;
-    background: #ff9acb;
-    padding-top: 100px;
+    overflow: hidden;
 }
 
-/* Title */
-h1 {
-    color: white;
-    text-shadow: 4px 4px #ff4d88;
-    font-size: 16px;
-}
-
-/* Button */
+/* ปุ่มหลัก */
 button {
-    margin-top: 40px;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 12px;
-    padding: 15px 20px;
-    border: 4px solid #ff4d88;
-    background: white;
-    color: #ff4d88;
+    font-size: 20px;
+    padding: 15px 25px;
+    border-radius: 12px;
+    border: none;
+    background-color: white;
+    color: #ff4d94;
     cursor: pointer;
-    box-shadow: 6px 6px #ff4d88;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* Overlay */
-#overlay {
+/* ฉากมืด */
+.overlay {
     position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
     display: none;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Popup */
+/* popup */
 .popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
     background: white;
-    padding: 40px;
-    border: 6px solid #ff4d88;
-    box-shadow: 8px 8px #ff4d88;
-    transition: transform 0.3s ease;
+    padding: 30px;
+    border-radius: 20px;
     width: 80%;
-    max-width: 350px;
-}
-
-.popup.show {
-    transform: translate(-50%, -50%) scale(1);
+    max-width: 300px;
+    animation: fadeIn 0.6s ease;
 }
 
 .popup h2 {
-    color: #ff4d88;
-    font-size: 14px;
-    margin-bottom: 20px;
+    color: #ff4d94;
+    font-size: 24px;
 }
 
-.popup p {
-    font-size: 10px;
-    margin-bottom: 20px;
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
 }
 </style>
 </head>
 
 <body>
 
-<h1>💗 HAPPY VALENTINE 💗</h1>
-
 <button onclick="showLove()">เค้ามีอะไรจะบอก...</button>
 
-<div id="overlay"></div>
-
-<div class="popup" id="lovePopup">
-    <h2>💖 เค้ารักที่รักนะ 💖</h2>
-    <p>มีเซอร์ไพรส์ในปุ่มข้างล่าง</p>
-    <button onclick="openSong()">กดตรงนี้!!</button>
+<div class="overlay" id="overlay">
+    <div class="popup">
+        <h2>💖 เค้ารักที่รักนะ 💖</h2>
+        <button onclick="closeLove()">ปิด</button>
+    </div>
 </div>
 
 <script>
-function showLove(){
-    document.getElementById("overlay").style.display = "block";
-    let popup = document.getElementById("lovePopup");
-    popup.style.display = "block";
-
-    setTimeout(function(){
-        popup.classList.add("show");
-    }, 50);
+function showLove() {
+    document.getElementById("overlay").style.display = "flex";
 }
 
-function openSong(){
-    window.open("https://www.youtube.com/watch?v=gg_6eVaw52o", "_blank");
+function closeLove() {
+    document.getElementById("overlay").style.display = "none";
 }
 </script>
 
